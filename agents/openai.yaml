@@ -1,6 +1,6 @@
 interface:
   display_name: IELTS Speaking Coach
-  short_description: Strict live IELTS speaking practice and feedback
+  short_description: IELTS speaking practice, feedback, and Notion archives
   default_prompt: Start a strict IELTS Speaking diagnostic. Follow the diagnostic turn sequence exactly, ask one question at a time, and wait for my answer after each question.
 policy:
   products:

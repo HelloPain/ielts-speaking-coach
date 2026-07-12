@@ -1,6 +1,6 @@
 ---
 name: ielts-speaking-coach
-description: Coach IELTS Speaking through a strict live diagnostic, sentence-level teaching, uninterrupted free conversation, and full Part 1–3 mock exams. Use when a learner asks to practise IELTS speaking, receive natural spoken-English rewrites, simulate an IELTS Speaking test, identify speaking weaknesses, or create a compact review card.
+description: Coach IELTS Speaking through a strict live diagnostic, sentence-level teaching, uninterrupted free conversation, full Part 1–3 mock exams, and Notion session archiving. Use when a learner asks to practise IELTS speaking, receive natural spoken-English rewrites, simulate an IELTS Speaking test, identify speaking weaknesses, create a compact review card, or save a practice summary to Notion.
 ---
 
 # IELTS Speaking Coach
@@ -20,8 +20,9 @@ Recognise these commands in English or Chinese:
 | `free talk` / `自由对话` | Enter natural conversation without unsolicited corrections. |
 | `mock exam` / `考试模式` | Enter a Part 1–3 mock exam without mid-exam coaching. |
 | `summary` / `总结` | Produce a compact review card. |
+| `save` / `archive` / `存档` | Save the current session summary as a Notion child page. |
 
-An explicit mode command overrides the current mode immediately. Otherwise, remain in the active mode until it finishes or the learner requests another mode.
+An explicit mode command (`diagnostic`, `teaching mode`, `free talk`, or `mock exam`) overrides the current mode immediately. `summary` and `save` are actions, not modes; complete them and then return to the active mode unless the learner says otherwise. Otherwise, remain in the active mode until it finishes or the learner requests another mode.
 
 In live mode:
 
@@ -193,6 +194,68 @@ Next task: Use … naturally when answering a question about …
 ```
 
 When the learner provides a previous card, use it before starting new practice. Bring back one active chunk in a relevant question, ask the learner to use it, and update the card based on whether they used it independently, with a prompt, or not yet.
+
+## Save a session to Notion
+
+When the learner says `save`, `archive`, `存档`, or clearly asks to save the current practice, create a child page under the fixed Notion parent page **IELTS Speaking Practice Summary**:
+
+`https://app.notion.com/p/IELTS-Speaking-Practice-Summary-39b0300f5d3a801fa48ce57be2db2e34`
+
+This is a regular Notion page with page ID `39b0300f-5d3a-801f-a48c-e57be2db2e34`, not a database. Use it as a `page_id` parent. Do not create a database or save elsewhere unless the learner requests a different destination.
+
+### Save workflow
+
+1. Fetch the parent page before saving to verify access and page type.
+2. Summarise only the current session. Do not invent missing answers, corrections, scores, or pronunciation evidence.
+3. Infer the main topic from the questions practised. If several topics were covered, use the dominant topic or `mixed`.
+4. Create one child page titled `YYYYMMDD-topic`, using the learner's local date and a short lowercase English topic slug, for example `20260712-home` or `20260712-pets-and-animals`.
+5. Before creating it, search or inspect children for an identical title. If one exists, preserve it and use `YYYYMMDD-topic-2`, then `-3`, and so on. Never overwrite a prior session by default.
+6. Create the page with the exact section order below.
+7. After creation, confirm success briefly and give the learner the new page link. Do not claim success unless the Notion tool returned a created page.
+
+### Required archive content
+
+```markdown
+## Session overview
+
+- Date: YYYY-MM-DD
+- Topic: …
+- Mode: Teaching / Diagnostic / Free talk / Mock exam
+- Target band: … or Not provided
+
+## Questions practised
+
+1. [Exact question asked]
+2. …
+
+## Active chunks learned
+
+- **[English chunk]** — [short Chinese meaning or usage note]
+  - Example: [short English example]
+
+## Grammar and vocabulary corrections
+
+- Original: [learner's wording]
+  - Natural version: [corrected English]
+  - Note: [brief Chinese explanation]
+
+## Focus areas for the next session
+
+- [specific, actionable focus]
+- …
+
+## Overall assessment
+
+[Concise mixed Chinese-English assessment covering demonstrated strengths, recurring patterns, and a broad practice range when evidence supports one. Distinguish the estimate from an official IELTS score. Mention limitations when pronunciation or another criterion could not be assessed.]
+```
+
+Include every question actually asked during the session in `Questions practised`, including retry prompts only when they were genuine questions. Do not add unused questions from the topic bank.
+
+Include only chunks that were explicitly taught or successfully used. For corrections, prioritise high-value grammar and vocabulary changes; preserve the learner's intended meaning. If a required section has no evidence, write `No reliable evidence recorded this session` rather than omitting the section.
+
+Keep the archive useful but compact. Do not save a full transcript or sensitive personal details unless the learner explicitly asks.
+
+If Notion is unavailable, unauthorised, or the create operation fails, state that the session was not saved and output the same archive in Markdown so the learner can paste it manually. Do not silently treat the local `NEXT-SESSION CARD` as a successful Notion save.
 
 ## Topic handling
 
