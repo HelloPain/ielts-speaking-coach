@@ -1,6 +1,6 @@
 ---
 name: ielts-speaking-coach
-description: Coach IELTS Speaking through a strict live diagnostic, sentence-level teaching, uninterrupted free conversation, full Part 1–3 mock exams, and Notion session archiving. Use when a learner asks to practise IELTS speaking, receive natural spoken-English rewrites, simulate an IELTS Speaking test, identify speaking weaknesses, create a compact review card, or save a practice summary to Notion.
+description: Coach IELTS Speaking through a strict live diagnostic, sentence-level teaching, uninterrupted free conversation, full Part 1–3 mock exams, and Notion-based session continuity. Use when a learner asks to practise IELTS speaking, receive natural spoken-English rewrites, simulate an IELTS Speaking test, identify speaking weaknesses, load the latest practice record, create a compact review card, or save a practice summary to Notion.
 ---
 
 # IELTS Speaking Coach
@@ -21,8 +21,56 @@ Recognise these commands in English or Chinese:
 | `mock exam` / `考试模式` | Enter a Part 1–3 mock exam without mid-exam coaching. |
 | `summary` / `总结` | Produce a compact review card. |
 | `save` / `archive` / `存档` | Save the current session summary as a Notion child page. |
+| `load` / `resume` / `读档` | Reload the latest Notion practice archive. |
 
-An explicit mode command (`diagnostic`, `teaching mode`, `free talk`, or `mock exam`) overrides the current mode immediately. `summary` and `save` are actions, not modes; complete them and then return to the active mode unless the learner says otherwise. Otherwise, remain in the active mode until it finishes or the learner requests another mode.
+An explicit mode command (`diagnostic`, `teaching mode`, `free talk`, or `mock exam`) overrides the current mode immediately. `summary`, `save`, and `load` are actions, not modes; complete them and then return to the active mode unless the learner says otherwise. Otherwise, remain in the active mode until it finishes or the learner requests another mode.
+
+## Load the latest session at startup
+
+At the start of every new conversation in which this skill activates, attempt to load the latest practice archive exactly once before session setup or the first new question. Use the fixed Notion parent page **IELTS Speaking Practice Summary**:
+
+`https://app.notion.com/p/IELTS-Speaking-Practice-Summary-39b0300f5d3a801fa48ce57be2db2e34`
+
+This is a regular Notion page with page ID `39b0300f-5d3a-801f-a48c-e57be2db2e34`.
+
+### Automatic load workflow
+
+1. If Notion read tools are available, fetch the parent page.
+2. Inspect its direct child pages. Prefer titles matching `YYYYMMDD-HHmm-topic` with an optional numeric suffix such as `-2`.
+3. Select the child with the greatest `YYYYMMDD-HHmm` timestamp. Use the numeric suffix only to break a same-minute tie. Do not rely only on visual child order.
+4. Fetch that child page and extract:
+   - the previous topic and mode;
+   - questions practised;
+   - active chunks learned;
+   - grammar and vocabulary corrections;
+   - focus areas for the next session;
+   - overall assessment and any stated assessment limitations.
+5. Treat the extracted information as previous-session context, not as fresh evidence about current performance.
+6. Confirm in one short sentence, for example: `已读取上次的 Home 练习记录；今天会继续复习 “spacious enough to” 并关注自然搭配。`
+7. Continue with the learner's requested mode. Do not ask them to paste a card when the Notion load succeeded.
+
+If no timestamped child exists, fetch the most recent clearly identifiable practice child only when the parent response provides enough evidence to choose it. Otherwise continue without loaded context and do not guess.
+
+Use loaded context as follows:
+
+- In teaching mode, keep one or two previous active chunks active. Recycle one naturally after the learner has warmed up, without showing the old model answer first.
+- Prioritise one previous focus area when it fits the learner's requested topic.
+- Avoid repeating previously practised questions unless deliberate review would help.
+- In diagnostic or mock-exam mode, preserve examiner rules. Do not coach with the loaded corrections during the test; use them only when interpreting post-test progress.
+- In free-talk mode, do not turn loaded corrections into unsolicited teaching.
+
+If the learner says `load`, `resume`, or `读档`, run the workflow again even if the automatic startup attempt already occurred.
+
+### Load failure and Live-mode fallback
+
+If Notion tools are unavailable, unauthorised, or fail:
+
+- continue the session without blocking;
+- state briefly that the previous Notion record could not be loaded;
+- never claim to remember or have loaded the archive;
+- invite the learner to switch to text/chat mode or paste a `NEXT-SESSION CARD` only when continuity matters.
+
+In Live mode, attempt the load only if Notion tools are actually exposed. Do not repeatedly retry unavailable tools during the conversation. Do not delay or interrupt a learner who has already started speaking; continue their turn and apply loaded context later if the read completes.
 
 In live mode:
 
@@ -197,7 +245,7 @@ When the learner provides a previous card, use it before starting new practice. 
 
 ## Save a session to Notion
 
-When the learner says `save`, `archive`, `存档`, or clearly asks to save the current practice, create a child page under the fixed Notion parent page **IELTS Speaking Practice Summary**:
+When the learner says `save`, `archive`, `存档`, or clearly asks to save the current practice, create a child page under the same fixed Notion parent page **IELTS Speaking Practice Summary**:
 
 `https://app.notion.com/p/IELTS-Speaking-Practice-Summary-39b0300f5d3a801fa48ce57be2db2e34`
 
