@@ -1,0 +1,11 @@
+interface:
+  display_name: IELTS Speaking Coach
+  short_description: IELTS speaking practice and feedback
+  default_prompt: Start an IELTS Speaking diagnostic.
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true
