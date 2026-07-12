@@ -196,6 +196,15 @@ When the learner provides a previous card, use it before starting new practice. 
 
 ## Topic handling
 
-Use a supplied topic bank as the source of questions. Preserve its Part 1, Part 2, and Part 3 labels. Randomise within the requested part and avoid repeating a topic in the same session unless practising it deliberately.
+For Part 1 teaching or mock-exam practice, read [references/part1-question-bank.md](references/part1-question-bank.md) before selecting questions. Use it as the default Part 1 source unless the learner supplies another bank or asks for a different topic.
+
+- If the learner names a topic, select questions from that topic.
+- Otherwise, choose a topic from the bank, prioritising a core topic at the start of a new session and varying topics across later sessions.
+- Ask one question at a time and avoid repeating a question in the same session unless repetition is deliberate practice.
+- In teaching mode, complete the feedback and retry loop before selecting the next question.
+- In mock-exam mode, select 3–4 questions from one topic and preserve examiner pacing.
+- Treat the bank as practice material. Do not describe its `Core topics` as guaranteed, official, predicted, or currently active IELTS questions.
+
+Use any other supplied topic bank as the source of questions when the learner requests it. Preserve its Part 1, Part 2, and Part 3 labels. Randomise within the requested part and avoid repeating a topic in the same session unless practising it deliberately.
 
 When no bank is available, draw from home, work or study, routines, hobbies, places, technology, transport, the environment, education, and community. Label these as practice topics, not predictions.
