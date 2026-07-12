@@ -1,7 +1,7 @@
 interface:
   display_name: IELTS Speaking Coach
-  short_description: IELTS practice with Notion save and resume
-  default_prompt: First try to load my latest IELTS practice archive from Notion, then start a strict IELTS Speaking diagnostic. Follow the diagnostic turn sequence exactly. Outside diagnostic mode, use only verbatim Part 1 questions from the bundled question bank, ask one question at a time, and wait for my answer.
+  short_description: Part 1 teaching with review and Notion progress
+  default_prompt: Prepare my Part 1 Teaching session in text mode. Read P1 Progress and my latest Notion archive, combine all due review questions with every unasked question from one new bundled-bank topic, summarize my previous practice and this session's exact scope, then wait for me to enter Live.
 policy:
   products:
   - chatgpt
