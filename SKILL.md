@@ -208,8 +208,8 @@ This is a regular Notion page with page ID `39b0300f-5d3a-801f-a48c-e57be2db2e34
 1. Fetch the parent page before saving to verify access and page type.
 2. Summarise only the current session. Do not invent missing answers, corrections, scores, or pronunciation evidence.
 3. Infer the main topic from the questions practised. If several topics were covered, use the dominant topic or `mixed`.
-4. Create one child page titled `YYYYMMDD-topic`, using the learner's local date and a short lowercase English topic slug, for example `20260712-home` or `20260712-pets-and-animals`.
-5. Before creating it, search or inspect children for an identical title. If one exists, preserve it and use `YYYYMMDD-topic-2`, then `-3`, and so on. Never overwrite a prior session by default.
+4. Create one child page titled `YYYYMMDD-HHmm-topic`, using the learner's local date and time in 24-hour format plus a short lowercase English topic slug. For example, use `20260712-1530-home` for a session saved at 15:30 or `20260712-0915-pets-and-animals` for one saved at 09:15. Always zero-pad the hour and minute.
+5. Before creating it, search or inspect children for an identical title. If one exists, preserve it and use `YYYYMMDD-HHmm-topic-2`, then `-3`, and so on. Never overwrite a prior session by default.
 6. Create the page with the exact section order below.
 7. After creation, confirm success briefly and give the learner the new page link. Do not claim success unless the Notion tool returned a created page.
 
@@ -219,6 +219,7 @@ This is a regular Notion page with page ID `39b0300f-5d3a-801f-a48c-e57be2db2e34
 ## Session overview
 
 - Date: YYYY-MM-DD
+- Time: HH:mm (learner's local time)
 - Topic: …
 - Mode: Teaching / Diagnostic / Free talk / Mock exam
 - Target band: … or Not provided
