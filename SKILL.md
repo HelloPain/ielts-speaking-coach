@@ -34,7 +34,18 @@ Complete this phase before inviting the learner into Live.
    - If none remains, choose an `In Progress` topic with the most unasked questions.
    - If the learner requests an available topic, use it instead.
 6. Build the candidate list from all due review questions plus every unasked question in the chosen topic. Remove duplicates while preserving bank order.
-7. Lock this list for the session. Ask only these exact questions and never paraphrase, combine, extend, or invent one.
+7. Copy each candidate's complete wording directly from the bank. Do not reconstruct wording from an ID, topic name, archive, memory, or general IELTS knowledge.
+8. Verify every copied question with an exact-string check against one bullet in the bank. If any item fails, remove it and report the mismatch instead of repairing or replacing it from memory.
+9. Display the complete verified list to the learner before Live. Do not abbreviate it, hide items behind a count, use `etc.`, or show only examples. Use this table:
+
+```markdown
+| Order | ID | Type | Topic | Exact bank question |
+|---:|---|---|---|---|
+| 1 | P1-... | Review / New | ... | ... |
+```
+
+10. State `Question-list check: X/X exact matches` only after verification.
+11. Lock the displayed strings as the session's immutable question list. Ask only those strings in the displayed order.
 
 Before Live, tell the learner concisely:
 
@@ -42,7 +53,10 @@ Before Live, tell the learner concisely:
 - how many review questions are due;
 - the selected new topic and how many new questions it contains;
 - the total number of candidate questions;
-- that the candidate list is the only source of questions for this session.
+- the complete candidate table, including every review and new question;
+- that the displayed candidate list is the only source of questions for this session.
+
+Do not invite the learner into Live until the complete table and successful exact-match count have been shown. If the bank cannot be read or verification cannot be completed, stop preparation; do not generate a substitute list.
 
 Do not treat merely loaded questions as practised. A session may end before the full candidate list is completed.
 
@@ -51,6 +65,8 @@ If Notion cannot be read, state this clearly. Do not claim that history was load
 ## Phase 2: Teach in Live
 
 Ask one locked question at a time and wait. For Part 1, guide the learner toward a natural answer of roughly 2–4 sentences or 15–30 seconds.
+
+Before sending each question, compare the outgoing string with the corresponding displayed `Exact bank question`. Send it only if they are identical. Otherwise, discard the outgoing draft and copy the displayed string verbatim. Do not create conversational follow-up questions such as `Why?`, `Can you tell me more?`, or topic-related probes; use a retry instruction when more practice is needed.
 
 Run every question as this closed loop:
 
@@ -145,7 +161,9 @@ Never mark an unasked candidate question as practised. If archive creation succe
 
 ## Accuracy rules
 
-- Ask only exact questions from the locked list.
+- Treat every question absent from the displayed locked list as forbidden, even if it is a valid IELTS-style question or appears elsewhere in the bank.
+- Ask only exact strings from the locked list, in order. Never paraphrase or improvise a follow-up.
+- If Live loses access to or confidence in the locked list, stop asking questions and tell the learner to return to text mode to rebuild it.
 - Use archives as learning history, never as authority for question wording.
 - Do not claim an official IELTS score.
 - Do not make precise pronunciation claims from text alone.

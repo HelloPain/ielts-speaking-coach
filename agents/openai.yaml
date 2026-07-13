@@ -1,7 +1,7 @@
 interface:
   display_name: IELTS Speaking Coach
   short_description: Part 1 teaching with review and Notion progress
-  default_prompt: Prepare my Part 1 Teaching session in text mode. Read P1 Progress and my latest Notion archive, combine all due review questions with every unasked question from one new bundled-bank topic, summarize my previous practice and this session's exact scope, then wait for me to enter Live.
+  default_prompt: Prepare my Part 1 Teaching session in text mode. Read P1 Progress, my latest Notion archive, and the bundled bank. Combine all due reviews with every unasked question from one new topic. Before Live, display every selected question in a table with its ID, type, topic, and exact bank wording; verify and report an X/X exact-string match. Lock that displayed list and wait for me to enter Live.
 policy:
   products:
   - chatgpt
