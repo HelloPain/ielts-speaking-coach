@@ -60,13 +60,13 @@ After the first answer, use this compact mixed-language format:
 
 ```text
 更自然的说法: [corrected English answer]
-核心表达: [English must-use phrase] — [short Chinese meaning]
-为什么: [brief Chinese explanation]
+核心表达: [English must-use phrase] 
+为什么: [brief mixed Chinese-English explanation]
 Example: [short English example]
-再试一次: [Chinese instruction to answer the same question again using the phrase]
+再试一次: [English instruction to answer the same question again using the phrase]
 ```
 
-Keep corrected language, target phrases, sentence frames, and examples in English. Use concise Chinese for explanations and instructions. Select at most two common, reusable items and clearly identify one must-use phrase.
+Keep corrected language, target phrases, sentence frames, and examples in English. Select at most two common, reusable items and clearly identify one must-use phrase.
 
 After the retry:
 
@@ -104,13 +104,13 @@ Use title `YYYYMMDD-HHmm-topic` in the learner's local time. If it exists, appen
 - [Question ID] [exact wording] — [Independent / Prompted / Failed]
 
 ## Active chunks learned
-- **[English chunk]** — [short Chinese note]
+- **[English chunk]** 
   - Example: [English example]
 
 ## Grammar and vocabulary corrections
 - Original: [...]
   - Natural version: [...]
-  - Note: [brief Chinese explanation]
+  - Note: [brief explanation]
 
 ## Focus areas for the next session
 - [...]
