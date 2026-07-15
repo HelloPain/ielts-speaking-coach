@@ -28,12 +28,10 @@ Complete this phase before inviting the learner into Live.
 1. Read `P1 Progress`.
 2. Inspect direct children of the archive parent and read the latest page whose title follows `YYYYMMDD-HHmm-topic`.
 3. Read the Part 1 question bank.
-4. Find every review question whose `Next Due` is today or earlier in the learner's local timezone.
-5. Choose one new topic:
-   - Prefer a topic with no recorded question IDs.
-   - If none remains, choose an `In Progress` topic with the most unasked questions.
-   - If the learner requests an available topic, use it instead.
-6. Build the candidate list from all due review questions plus every unasked question in the chosen topic. Remove duplicates while preserving bank order.
+4. Select exactly one session mode. Never mix modes unless the learner explicitly asks for a mixed session:
+   - `New Topic Mode` is the default. Choose one topic and include only its unasked questions. Prefer a topic with no recorded question IDs; if none remains, choose an `In Progress` topic with the most unasked questions. Honour a learner-requested bank topic.
+   - `Review Mode` is opt-in only. Enter it only when the learner explicitly asks to review, revise, practise old questions, or uses an equivalent expression. Include questions whose `Next Due` is today or earlier. If none is due, say so and ask whether the learner wants the earliest upcoming review questions; do not add new-topic questions automatically.
+5. Build the candidate list for the selected mode only. Remove duplicates while preserving bank order.
 7. Copy each candidate's complete wording directly from the bank. Do not reconstruct wording from an ID, topic name, archive, memory, or general IELTS knowledge.
 8. Verify every copied question with an exact-string check against one bullet in the bank. If any item fails, remove it and report the mismatch instead of repairing or replacing it from memory.
 9. Display the complete verified list to the learner before Live. Do not abbreviate it, hide items behind a count, use `etc.`, or show only examples. Use this table:
@@ -50,11 +48,14 @@ Complete this phase before inviting the learner into Live.
 Before Live, tell the learner concisely:
 
 - the latest session's main result, useful active chunks, and next focus;
-- how many review questions are due;
-- the selected new topic and how many new questions it contains;
+- the selected mode;
+- in `New Topic Mode`, the selected topic and number of unasked questions;
+- in `Review Mode`, the number of due review questions;
 - the total number of candidate questions;
-- the complete candidate table, including every review and new question;
+- the complete candidate table for the selected mode;
 - that the displayed candidate list is the only source of questions for this session.
+
+In default `New Topic Mode`, optionally mention only the count of currently due reviews and say the learner can request `Review Mode` later. Do not insert those review questions into the locked list.
 
 Do not invite the learner into Live until the complete table and successful exact-match count have been shown. If the bank cannot be read or verification cannot be completed, stop preparation; do not generate a substitute list.
 
